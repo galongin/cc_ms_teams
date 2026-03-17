@@ -1,0 +1,24 @@
+{
+  "projectName": "cc-ms-teams",
+  "requirements": {
+    "useCase": "Full bidirectional chat - send prompts to Claude Code from Teams AND receive notifications/results back",
+    "hosting": "Local machine with ngrok/dev tunnel for Teams webhook delivery",
+    "features": [
+      "Send messages from Teams to Claude Code sessions",
+      "Receive Claude Code responses in Teams (including streaming)",
+      "Share code snippets and file diffs via Adaptive Cards",
+      "File upload from Teams to local filesystem",
+      "Syntax-highlighted code blocks in Teams",
+      "Diff visualization in Adaptive Cards"
+    ],
+    "authentication": "Both Azure AD app registration AND personal access token approaches documented",
+    "scope": "Architecture specification + detailed implementation plan (no prototype)",
+    "deployment": "Local-first, developer workstation, dev tunnel for webhook receipt",
+    "techStack": "TypeScript/Node.js, Teams SDK v2 or M365 Agents SDK, Claude Agent SDK",
+    "existingSolutions": {
+      "teams-claude-bot": "Marvae/teams-claude-bot on GitHub - open source reference",
+      "composio-mcp": "Composio MS Teams MCP server - reverse direction reference",
+      "teams-sdk-v2-mcp": "MS Teams SDK v2 native MCP support"
+    }
+  }
+}

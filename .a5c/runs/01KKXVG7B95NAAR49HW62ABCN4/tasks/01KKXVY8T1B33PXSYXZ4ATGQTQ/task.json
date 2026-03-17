@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXVY8T1B33PXSYXZ4ATGQTQ",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-impl:S000002:__sdk.breakpoint",
+  "stepId": "S000002",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 1
+      },
+      "question": "Milestone 1 (Project Bootstrap) complete. Review the project structure, config system, CLI, and tunnel manager. Run `npm test` and `cc-ms-teams status` to verify. Approve to continue?",
+      "title": "Milestone 1 Review"
+    },
+    "requestedAt": "2026-03-17T12:22:13.569Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 1
+      },
+      "question": "Milestone 1 (Project Bootstrap) complete. Review the project structure, config system, CLI, and tunnel manager. Run `npm test` and `cc-ms-teams status` to verify. Approve to continue?",
+      "title": "Milestone 1 Review"
+    },
+    "requestedAt": "2026-03-17T12:22:13.569Z"
+  }
+}

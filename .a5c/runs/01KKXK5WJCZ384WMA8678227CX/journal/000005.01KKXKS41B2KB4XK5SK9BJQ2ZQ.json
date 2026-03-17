@@ -1,0 +1,21 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T09:59:36.236Z",
+  "data": {
+    "effectId": "01KKXKS40Y7QMFJN4M66PXH738",
+    "invocationKey": "cc-ms-teams-spec:S000002:architecture-design",
+    "invocationHash": "a257b0562e49e7200663428b244ca2030723db8d45b8d00d690a6f65d27028f3",
+    "stepId": "S000002",
+    "taskId": "architecture-design",
+    "kind": "agent",
+    "label": "architecture",
+    "taskDefRef": "tasks/01KKXKS40Y7QMFJN4M66PXH738/task.json",
+    "labels": [
+      "architecture",
+      "design",
+      "teams",
+      "claude-code"
+    ]
+  },
+  "checksum": "0abe9a6a69119fd3801dbc2f433a29000aff5105139965c23da7e643dd1f6e66"
+}

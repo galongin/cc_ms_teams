@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXWMR51JGAXF5EEVM393DC1",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-impl:S000004:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approved": true,
+    "response": "Approve"
+  },
+  "startedAt": "2026-03-17T12:40:41.737Z",
+  "finishedAt": "2026-03-17T12:40:41.737Z",
+  "value": {
+    "approved": true,
+    "response": "Approve"
+  }
+}

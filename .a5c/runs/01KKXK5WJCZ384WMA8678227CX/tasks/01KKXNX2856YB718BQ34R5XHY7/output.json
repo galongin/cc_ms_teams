@@ -1,0 +1,25 @@
+{
+  "overallAssessment": "needs-revisions",
+  "issues": {
+    "critical": [
+      "Architecture doc still contains full File Sharing Service spec for a feature dropped from v1.0"
+    ],
+    "major": [
+      "getConversationHistory MCP tool listed but has no implementation specified",
+      "IMessageBridge.teamsToClaudeMessage() return type mismatch between architecture and spec",
+      "MCP endpoint /mcp claims local-only but no mechanism prevents tunnel access",
+      "card.action event name for Adaptive Card submits not verified in Teams SDK v2"
+    ],
+    "minor": [
+      "No sequence diagram for MCP-initiated bidirectional flow",
+      "MarkdownAdapter in architecture doc absent from spec and plan",
+      "MessageContext.attachments type mismatch between docs",
+      "Reconnection backoff timings differ between spec and plan",
+      "Spec claims 22 CodeBlock languages but list has 23"
+    ]
+  },
+  "completenessScore": 82,
+  "consistencyScore": 75,
+  "feasibilityScore": 88,
+  "artifacts": ["docs/validation-report.md"]
+}

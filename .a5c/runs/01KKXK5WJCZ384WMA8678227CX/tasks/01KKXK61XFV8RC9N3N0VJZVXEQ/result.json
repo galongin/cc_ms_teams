@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXK61XFV8RC9N3N0VJZVXEQ",
+  "taskId": "deep-research",
+  "invocationKey": "cc-ms-teams-spec:S000001:deep-research",
+  "status": "ok",
+  "result": {
+    "artifacts": [
+      "docs/research-report.md"
+    ],
+    "findings": {
+      "authentication": {
+        "primary": "Azure AD single-tenant app registration with SSO support",
+        "requirement": "All Teams bots fundamentally require some Azure registration",
+        "secondary": "Webhook-only approach (limited to channels, no personal chat, no Adaptive Cards)"
+      },
+      "claudeCodeSDK": {
+        "hooks": "17+ lifecycle events including Notification, PostToolUse, SessionEnd, Stop",
+        "options": [
+          "allowedTools",
+          "permissionMode",
+          "canUseTool",
+          "maxTurns",
+          "maxBudgetUsd",
+          "resume",
+          "forkSession"
+        ],
+        "primaryAPI": "query() function accepting string or AsyncIterable<SDKUserMessage>",
+        "sessionManagement": "listSessions() and getSessionMessages() for session browsing",
+        "streamingMode": "Streaming input mode (async generator) recommended for persistent sessions",
+        "v2Preview": "Simpler send()/stream() pattern in V2 preview"
+      },
+      "existingSolutions": {
+        "claude-m365-connector": "Official enterprise solution, not for custom local development",
+        "composio-mcp": "Reverse direction only (Claude -> Teams), being deprecated",
+        "teams-claude-bot": "Validates architecture but uses deprecated botbuilder v4, lacks MCP, A2A, CodeBlock"
+      },
+      "localDevelopment": {
+        "appManifest": "Requires botId, scopes, supportsFiles, validDomains",
+        "devTunnels": "Persistent HTTPS URLs via VS Code dev tunnels (12345.devtunnels.ms)",
+        "messageFlow": "Teams Service -> Azure Bot Service -> Dev Tunnel -> Local server"
+      },
+      "security": {
+        "mitigations": [
+          "User whitelist by AAD Object ID",
+          "Tool restrictions via canUseTool",
+          "Sandbox mode",
+          "Rate limiting",
+          "Audit logging",
+          "Human-in-the-loop for destructive ops"
+        ],
+        "risks": [
+          "Remote code execution",
+          "Config file attacks",
+          "API key theft",
+          "Prompt injection",
+          "Data exfiltration"
+        ]
+      },
+      "teamsArchitecture": {
+        "adaptiveCards": "CodeBlock element supports 22 languages with syntax highlighting",
+        "mcpPlugin": "McpPlugin converts any App into an MCP server with tools/resources/prompts",
+        "messageHandlers": "app.on('message') event-driven pattern",
+        "packages": [
+          "@microsoft/teams.apps",
+          "@microsoft/teams.mcp",
+          "@microsoft/teams.api"
+        ],
+        "proactiveMessaging": "app.send(conversationId, content) for async output delivery",
+        "sdk": "Teams SDK v2 (@microsoft/teams.apps) GA for TypeScript/C#"
+      }
+    },
+    "recommendations": [
+      "Use Teams SDK v2 with McpPlugin, not deprecated Bot Framework SDK",
+      "Use Claude Agent SDK streaming input mode for persistent interactive sessions",
+      "Implement side-by-side diff display using ColumnSet with two CodeBlock elements",
+      "Primary auth: Azure AD single-tenant with interactive setup wizard",
+      "Default to restrictive read-only tools; require explicit opt-in for Write/Edit/Bash",
+      "Implement user whitelist by Azure AD Object ID with rate limiting",
+      "Use canUseTool callback to surface permission requests as Adaptive Cards",
+      "Bundle with esbuild for single-file deployment; provide CLI commands (setup/start/stop/status)"
+    ],
+    "summary": "Comprehensive research completed for building a bidirectional Claude Code <-> Microsoft Teams chat plugin. The ecosystem is mature: Teams SDK v2 has native MCP/A2A support, Claude Agent SDK provides streaming sessions, and an existing OSS project (teams-claude-bot) validates the architecture. The recommended stack is Teams SDK v2 App class + McpPlugin for Teams, Claude Agent SDK streaming input mode for Claude Code, and Adaptive Cards with CodeBlock for code display."
+  },
+  "startedAt": "2026-03-17T09:59:25.759Z",
+  "finishedAt": "2026-03-17T09:59:25.759Z",
+  "value": {
+    "artifacts": [
+      "docs/research-report.md"
+    ],
+    "findings": {
+      "authentication": {
+        "primary": "Azure AD single-tenant app registration with SSO support",
+        "requirement": "All Teams bots fundamentally require some Azure registration",
+        "secondary": "Webhook-only approach (limited to channels, no personal chat, no Adaptive Cards)"
+      },
+      "claudeCodeSDK": {
+        "hooks": "17+ lifecycle events including Notification, PostToolUse, SessionEnd, Stop",
+        "options": [
+          "allowedTools",
+          "permissionMode",
+          "canUseTool",
+          "maxTurns",
+          "maxBudgetUsd",
+          "resume",
+          "forkSession"
+        ],
+        "primaryAPI": "query() function accepting string or AsyncIterable<SDKUserMessage>",
+        "sessionManagement": "listSessions() and getSessionMessages() for session browsing",
+        "streamingMode": "Streaming input mode (async generator) recommended for persistent sessions",
+        "v2Preview": "Simpler send()/stream() pattern in V2 preview"
+      },
+      "existingSolutions": {
+        "claude-m365-connector": "Official enterprise solution, not for custom local development",
+        "composio-mcp": "Reverse direction only (Claude -> Teams), being deprecated",
+        "teams-claude-bot": "Validates architecture but uses deprecated botbuilder v4, lacks MCP, A2A, CodeBlock"
+      },
+      "localDevelopment": {
+        "appManifest": "Requires botId, scopes, supportsFiles, validDomains",
+        "devTunnels": "Persistent HTTPS URLs via VS Code dev tunnels (12345.devtunnels.ms)",
+        "messageFlow": "Teams Service -> Azure Bot Service -> Dev Tunnel -> Local server"
+      },
+      "security": {
+        "mitigations": [
+          "User whitelist by AAD Object ID",
+          "Tool restrictions via canUseTool",
+          "Sandbox mode",
+          "Rate limiting",
+          "Audit logging",
+          "Human-in-the-loop for destructive ops"
+        ],
+        "risks": [
+          "Remote code execution",
+          "Config file attacks",
+          "API key theft",
+          "Prompt injection",
+          "Data exfiltration"
+        ]
+      },
+      "teamsArchitecture": {
+        "adaptiveCards": "CodeBlock element supports 22 languages with syntax highlighting",
+        "mcpPlugin": "McpPlugin converts any App into an MCP server with tools/resources/prompts",
+        "messageHandlers": "app.on('message') event-driven pattern",
+        "packages": [
+          "@microsoft/teams.apps",
+          "@microsoft/teams.mcp",
+          "@microsoft/teams.api"
+        ],
+        "proactiveMessaging": "app.send(conversationId, content) for async output delivery",
+        "sdk": "Teams SDK v2 (@microsoft/teams.apps) GA for TypeScript/C#"
+      }
+    },
+    "recommendations": [
+      "Use Teams SDK v2 with McpPlugin, not deprecated Bot Framework SDK",
+      "Use Claude Agent SDK streaming input mode for persistent interactive sessions",
+      "Implement side-by-side diff display using ColumnSet with two CodeBlock elements",
+      "Primary auth: Azure AD single-tenant with interactive setup wizard",
+      "Default to restrictive read-only tools; require explicit opt-in for Write/Edit/Bash",
+      "Implement user whitelist by Azure AD Object ID with rate limiting",
+      "Use canUseTool callback to surface permission requests as Adaptive Cards",
+      "Bundle with esbuild for single-file deployment; provide CLI commands (setup/start/stop/status)"
+    ],
+    "summary": "Comprehensive research completed for building a bidirectional Claude Code <-> Microsoft Teams chat plugin. The ecosystem is mature: Teams SDK v2 has native MCP/A2A support, Claude Agent SDK provides streaming sessions, and an existing OSS project (teams-claude-bot) validates the architecture. The recommended stack is Teams SDK v2 App class + McpPlugin for Teams, Claude Agent SDK streaming input mode for Claude Code, and Adaptive Cards with CodeBlock for code display."
+  }
+}

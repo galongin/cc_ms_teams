@@ -1,0 +1,15 @@
+{
+  "type": "RUN_CREATED",
+  "recordedAt": "2026-03-17T09:49:06.022Z",
+  "data": {
+    "runId": "01KKXK5WJCZ384WMA8678227CX",
+    "processId": "cc-ms-teams-spec",
+    "entrypoint": {
+      "importPath": "../../processes/cc-ms-teams-spec.js",
+      "exportName": "process"
+    },
+    "inputsRef": "inputs.json",
+    "prompt": "Create a comprehensive specification document for a Claude Code MS Teams bidirectional chat plugin. Research existing solutions, design system architecture, write detailed component specs with TypeScript interfaces, and create a milestone-based implementation plan."
+  },
+  "checksum": "e5c1d65a7117f6384bd0f5e2bf82ef1f4f2b8b473ea0f6399dc1ce4f8283fe78"
+}

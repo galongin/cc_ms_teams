@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXK61XFV8RC9N3N0VJZVXEQ",
+  "taskId": "deep-research",
+  "invocationKey": "cc-ms-teams-spec:S000001:deep-research",
+  "stepId": "S000001",
+  "kind": "agent",
+  "title": "Deep research: MS Teams + Claude Code integration landscape",
+  "labels": [
+    "claude-code",
+    "research",
+    "specification",
+    "teams"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXK61XFV8RC9N3N0VJZVXEQ/input.json",
+    "outputJsonPath": "tasks/01KKXK61XFV8RC9N3N0VJZVXEQ/result.json"
+  },
+  "inputs": {
+    "projectName": "cc-ms-teams",
+    "requirements": {
+      "authentication": "Both Azure AD app registration AND personal access token approaches documented",
+      "deployment": "Local-first, developer workstation, dev tunnel for webhook receipt",
+      "existingSolutions": {
+        "composio-mcp": "Composio MS Teams MCP server - reverse direction reference",
+        "teams-claude-bot": "Marvae/teams-claude-bot on GitHub - open source reference",
+        "teams-sdk-v2-mcp": "MS Teams SDK v2 native MCP support"
+      },
+      "features": [
+        "Send messages from Teams to Claude Code sessions",
+        "Receive Claude Code responses in Teams (including streaming)",
+        "Share code snippets and file diffs via Adaptive Cards",
+        "File upload from Teams to local filesystem",
+        "Syntax-highlighted code blocks in Teams",
+        "Diff visualization in Adaptive Cards"
+      ],
+      "hosting": "Local machine with ngrok/dev tunnel for Teams webhook delivery",
+      "scope": "Architecture specification + detailed implementation plan (no prototype)",
+      "techStack": "TypeScript/Node.js, Teams SDK v2 or M365 Agents SDK, Claude Agent SDK",
+      "useCase": "Full bidirectional chat - send prompts to Claude Code from Teams AND receive notifications/results back"
+    },
+    "researchTopics": [
+      "Microsoft Teams SDK v2 with MCP support - bot architecture, activity handlers, adaptive cards",
+      "Claude Agent SDK (TypeScript) - programmatic session management, streaming, tool access",
+      "Claude Code headless mode and hooks system for integration",
+      "Existing teams-claude-bot project architecture and lessons learned",
+      "Composio MS Teams MCP server capabilities and limitations",
+      "Azure Bot Service registration and local development with dev tunnels",
+      "Teams Adaptive Cards for code rendering, diffs, and file sharing",
+      "Proactive messaging patterns for sending Claude Code outputs to Teams",
+      "Authentication: Azure AD app registration vs personal access tokens",
+      "Security considerations for exposing Claude Code via Teams"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXX0D8JMBVEFM19R6D5B9DH",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000005:milestone-impl",
+  "status": "ok",
+  "result": {
+    "filesCreated": [
+      "src/session/types.ts",
+      "src/session/claude-sdk-types.ts",
+      "src/session/stream-input-adapter.ts",
+      "src/session/tool-permissions.ts",
+      "src/session/permission-handler.ts",
+      "src/session/output-processor.ts",
+      "src/session/session-factory.ts",
+      "src/session/session-manager.ts",
+      "tests/mocks/claude-sdk.ts",
+      "tests/unit/session/stream-input-adapter.test.ts",
+      "tests/unit/session/permission-handler.test.ts",
+      "tests/unit/session/output-processor.test.ts",
+      "tests/unit/session/session-manager.test.ts"
+    ],
+    "filesModified": [
+      "src/bot/activity-handlers.ts"
+    ],
+    "issues": [],
+    "milestone": 3,
+    "summary": "All 10 M3 tasks implemented. SDK types, StreamInputAdapter, SessionFactory, SessionManager, OutputProcessor, PermissionHandler with tool tiers, activity handlers wired. 138 tests pass.",
+    "testResults": {
+      "failedTests": 0,
+      "newTests": 45,
+      "passedTests": 138,
+      "totalTests": 138
+    },
+    "testsStatus": "pass",
+    "title": "Claude Code Integration"
+  },
+  "startedAt": "2026-03-17T12:48:37.001Z",
+  "finishedAt": "2026-03-17T12:48:37.001Z",
+  "value": {
+    "filesCreated": [
+      "src/session/types.ts",
+      "src/session/claude-sdk-types.ts",
+      "src/session/stream-input-adapter.ts",
+      "src/session/tool-permissions.ts",
+      "src/session/permission-handler.ts",
+      "src/session/output-processor.ts",
+      "src/session/session-factory.ts",
+      "src/session/session-manager.ts",
+      "tests/mocks/claude-sdk.ts",
+      "tests/unit/session/stream-input-adapter.test.ts",
+      "tests/unit/session/permission-handler.test.ts",
+      "tests/unit/session/output-processor.test.ts",
+      "tests/unit/session/session-manager.test.ts"
+    ],
+    "filesModified": [
+      "src/bot/activity-handlers.ts"
+    ],
+    "issues": [],
+    "milestone": 3,
+    "summary": "All 10 M3 tasks implemented. SDK types, StreamInputAdapter, SessionFactory, SessionManager, OutputProcessor, PermissionHandler with tool tiers, activity handlers wired. 138 tests pass.",
+    "testResults": {
+      "failedTests": 0,
+      "newTests": 45,
+      "passedTests": 138,
+      "totalTests": 138
+    },
+    "testsStatus": "pass",
+    "title": "Claude Code Integration"
+  }
+}

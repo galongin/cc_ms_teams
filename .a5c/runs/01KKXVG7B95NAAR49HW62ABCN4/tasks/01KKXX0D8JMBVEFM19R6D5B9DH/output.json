@@ -1,0 +1,10 @@
+{
+  "milestone": 3,
+  "title": "Claude Code Integration",
+  "filesCreated": ["src/session/types.ts","src/session/claude-sdk-types.ts","src/session/stream-input-adapter.ts","src/session/tool-permissions.ts","src/session/permission-handler.ts","src/session/output-processor.ts","src/session/session-factory.ts","src/session/session-manager.ts","tests/mocks/claude-sdk.ts","tests/unit/session/stream-input-adapter.test.ts","tests/unit/session/permission-handler.test.ts","tests/unit/session/output-processor.test.ts","tests/unit/session/session-manager.test.ts"],
+  "filesModified": ["src/bot/activity-handlers.ts"],
+  "testsStatus": "pass",
+  "testResults": {"totalTests": 138, "passedTests": 138, "failedTests": 0, "newTests": 45},
+  "issues": [],
+  "summary": "All 10 M3 tasks implemented. SDK types, StreamInputAdapter, SessionFactory, SessionManager, OutputProcessor, PermissionHandler with tool tiers, activity handlers wired. 138 tests pass."
+}

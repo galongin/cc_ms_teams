@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXP5TDQV8NHQFG12HR20GC6",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-spec:S000007:__sdk.breakpoint",
+  "stepId": "S000007",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "artifacts": [
+          "research-report.md",
+          "architecture-design.md",
+          "specification.md",
+          "implementation-plan.md",
+          "validation-report.md"
+        ]
+      },
+      "question": "Review the complete specification package: research findings, architecture, detailed spec, implementation plan, and validation report. Is the specification comprehensive and ready for implementation?",
+      "title": "Final Specification Review"
+    },
+    "requestedAt": "2026-03-17T10:41:29.527Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "artifacts": [
+          "research-report.md",
+          "architecture-design.md",
+          "specification.md",
+          "implementation-plan.md",
+          "validation-report.md"
+        ]
+      },
+      "question": "Review the complete specification package: research findings, architecture, detailed spec, implementation plan, and validation report. Is the specification comprehensive and ready for implementation?",
+      "title": "Final Specification Review"
+    },
+    "requestedAt": "2026-03-17T10:41:29.527Z"
+  }
+}

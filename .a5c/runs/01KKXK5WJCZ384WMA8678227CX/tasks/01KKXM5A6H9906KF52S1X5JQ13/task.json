@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXM5A6H9906KF52S1X5JQ13",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-spec:S000003:__sdk.breakpoint",
+  "stepId": "S000003",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "summary": "Architecture design for local Teams bot bridging to Claude Code via Agent SDK"
+      },
+      "question": "Review the architecture design. Does the component layout, data flow, and technology choices look correct for a local-first Teams-Claude Code bridge?",
+      "title": "Architecture Review"
+    },
+    "requestedAt": "2026-03-17T10:06:15.761Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "summary": "Architecture design for local Teams bot bridging to Claude Code via Agent SDK"
+      },
+      "question": "Review the architecture design. Does the component layout, data flow, and technology choices look correct for a local-first Teams-Claude Code bridge?",
+      "title": "Architecture Review"
+    },
+    "requestedAt": "2026-03-17T10:06:15.761Z"
+  }
+}

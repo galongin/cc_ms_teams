@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXX0D8JMBVEFM19R6D5B9DH",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000005:milestone-impl",
+  "stepId": "S000005",
+  "kind": "agent",
+  "title": "Milestone 3: Claude Code Integration",
+  "labels": [
+    "cc-ms-teams",
+    "implementation",
+    "milestone-3"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXX0D8JMBVEFM19R6D5B9DH/input.json",
+    "outputJsonPath": "tasks/01KKXX0D8JMBVEFM19R6D5B9DH/result.json"
+  },
+  "inputs": {
+    "acceptanceCriteria": [
+      "Session manager creates per-user Claude Agent SDK sessions",
+      "StreamInputAdapter correctly converts push messages to AsyncIterable",
+      "query() is called with streaming input mode",
+      "Output processor categorizes SDK events correctly",
+      "Permission handler defaults to read-only tools",
+      "canUseTool callback blocks unauthorized tool requests",
+      "Session lifecycle (create, query, stop) works correctly",
+      "npm test passes with session unit tests"
+    ],
+    "description": "Integrate Claude Agent SDK with streaming input mode for persistent sessions.",
+    "fileStructure": "\nsrc/session/types.ts, src/session/session-manager.ts, src/session/session-factory.ts,\nsrc/session/stream-input-adapter.ts, src/session/output-processor.ts, src/session/permission-handler.ts,\nsrc/utils/async-queue.ts,\ntests/unit/session/session-manager.test.ts, tests/unit/session/stream-input-adapter.test.ts,\ntests/unit/session/permission-handler.test.ts, tests/mocks/claude-sdk.ts",
+    "milestone": 3,
+    "projectName": "cc-ms-teams",
+    "specDir": "docs",
+    "tasks": [
+      "M3-T1: Session types (src/session/types.ts) - ISessionManager, Session, SessionOptions, SessionState interfaces",
+      "M3-T2: Async queue utility (src/utils/async-queue.ts) - typed AsyncIterable push queue for streaming input adapter",
+      "M3-T3: Stream input adapter (src/session/stream-input-adapter.ts) - converts push-based Teams messages to AsyncIterable<SDKUserMessage> for query()",
+      "M3-T4: Session factory (src/session/session-factory.ts) - creates query() calls with streaming input, configures allowedTools, permissionMode, working directory",
+      "M3-T5: Session manager (src/session/session-manager.ts) - SessionPool with getOrCreate, resume, stop, list. Per-user session isolation. Maps userId to active session",
+      "M3-T6: Output processor (src/session/output-processor.ts) - consumes SDK async iterator output, categorizes events (text, tool_use, error), forwards to bridge",
+      "M3-T7: Permission handler (src/session/permission-handler.ts) - canUseTool callback implementation, pending permission request map, timeout handling",
+      "M3-T8: Tool permission config - default read-only tools (Read, Grep, Glob, LS), configurable write tools opt-in (Write, Edit, Bash)",
+      "M3-T9: Wire session manager into bot - update activity handlers to route messages to session manager instead of echo",
+      "M3-T10: Basic query/response test - send a message through Teams handler -> session -> Claude SDK -> response back (single-shot first, streaming later)"
+    ],
+    "title": "Claude Code Integration"
+  }
+}

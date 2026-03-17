@@ -1,0 +1,20 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T10:29:09.854Z",
+  "data": {
+    "effectId": "01KKXNF82GC2Q1MCZWDSJ2R1GG",
+    "invocationKey": "cc-ms-teams-spec:S000005:implementation-plan",
+    "invocationHash": "0a1aff6f098c5125d6ac3c7ccf30181e73a19c643fb9329b3237e3265ab7cb7d",
+    "stepId": "S000005",
+    "taskId": "implementation-plan",
+    "kind": "agent",
+    "label": "planning",
+    "taskDefRef": "tasks/01KKXNF82GC2Q1MCZWDSJ2R1GG/task.json",
+    "labels": [
+      "planning",
+      "implementation",
+      "milestones"
+    ]
+  },
+  "checksum": "e5b6c442e65fd4ebc9c306374b5601d021c3987d70851194a264693d345ce7c1"
+}

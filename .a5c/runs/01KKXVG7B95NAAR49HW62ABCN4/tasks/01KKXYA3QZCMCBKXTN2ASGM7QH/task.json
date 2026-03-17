@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXYA3QZCMCBKXTN2ASGM7QH",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000009:milestone-impl",
+  "stepId": "S000009",
+  "kind": "agent",
+  "title": "Milestone 5: Adaptive Cards & Rich Output",
+  "labels": [
+    "cc-ms-teams",
+    "implementation",
+    "milestone-5"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXYA3QZCMCBKXTN2ASGM7QH/input.json",
+    "outputJsonPath": "tasks/01KKXYA3QZCMCBKXTN2ASGM7QH/result.json"
+  },
+  "inputs": {
+    "acceptanceCriteria": [
+      "CodeBlock cards render with correct syntax highlighting language",
+      "Diff cards show side-by-side before/after with CodeBlock elements",
+      "Progress cards show thinking and tool usage indicators",
+      "Error cards display user-friendly messages with actionable suggestions",
+      "Permission cards have working approve/deny/always-allow buttons",
+      "Card JSON output validates against Adaptive Card schema",
+      "Cards stay within 28KB payload limit",
+      "npm test passes with card template tests"
+    ],
+    "description": "Build Adaptive Card templates for code blocks, diffs, progress indicators, errors, and permission prompts.",
+    "fileStructure": "\nsrc/cards/types.ts, src/cards/renderer.ts, src/cards/language-mapper.ts,\nsrc/cards/templates/code-block.ts, src/cards/templates/diff-card.ts,\nsrc/cards/templates/progress-card.ts, src/cards/templates/error-card.ts,\nsrc/cards/templates/permission-card.ts, src/cards/templates/session-summary.ts,\ntests/unit/cards/language-mapper.test.ts, tests/unit/cards/renderer.test.ts,\ntests/unit/cards/code-block.test.ts, tests/unit/cards/permission-card.test.ts",
+    "milestone": 5,
+    "projectName": "cc-ms-teams",
+    "specDir": "docs",
+    "tasks": [
+      "M5-T1: Card types and renderer interface (src/cards/types.ts) - IAdaptiveCardRenderer, AdaptiveCard type definitions, card template registry",
+      "M5-T2: Language mapper (src/cards/language-mapper.ts) - maps file extensions and fence labels to CodeBlock language identifiers (22 supported languages)",
+      "M5-T3: Code block template (src/cards/templates/code-block.ts) - Adaptive Card with CodeBlock element, syntax highlighting, line numbers, language label",
+      "M5-T4: Diff card template (src/cards/templates/diff-card.ts) - side-by-side diff using ColumnSet with two CodeBlock elements, unified diff fallback for mobile",
+      "M5-T5: Progress card template (src/cards/templates/progress-card.ts) - thinking indicator, tool usage indicator with tool name and status",
+      "M5-T6: Error card template (src/cards/templates/error-card.ts) - user-friendly error display with error type, message, and suggested actions",
+      "M5-T7: Permission card template (src/cards/templates/permission-card.ts) - approve/deny/always-allow buttons for canUseTool requests, shows tool name, args, risk level",
+      "M5-T8: Main renderer (src/cards/renderer.ts) - dispatches to templates based on content type, integrates with claude-to-teams transformer"
+    ],
+    "title": "Adaptive Cards & Rich Output"
+  }
+}

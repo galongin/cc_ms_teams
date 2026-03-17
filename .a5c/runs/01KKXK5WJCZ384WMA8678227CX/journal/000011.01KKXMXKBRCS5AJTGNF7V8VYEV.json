@@ -1,0 +1,21 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T10:19:31.576Z",
+  "data": {
+    "effectId": "01KKXMXKBB0GB10A2XGTW5P7KC",
+    "invocationKey": "cc-ms-teams-spec:S000004:detailed-specification",
+    "invocationHash": "5b8d8362bb02c24130c58a23b241b24dbd3a0d562b6e897bf12064d9360d1ec7",
+    "stepId": "S000004",
+    "taskId": "detailed-specification",
+    "kind": "agent",
+    "label": "specification",
+    "taskDefRef": "tasks/01KKXMXKBB0GB10A2XGTW5P7KC/task.json",
+    "labels": [
+      "specification",
+      "detailed",
+      "teams",
+      "claude-code"
+    ]
+  },
+  "checksum": "4decb9535ea098e8c7fb54a225089999bb91d7be07a9afa3a01d98db8ff8a6be"
+}

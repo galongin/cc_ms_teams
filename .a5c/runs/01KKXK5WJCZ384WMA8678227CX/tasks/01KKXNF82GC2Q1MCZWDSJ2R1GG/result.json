@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXNF82GC2Q1MCZWDSJ2R1GG",
+  "taskId": "implementation-plan",
+  "invocationKey": "cc-ms-teams-spec:S000005:implementation-plan",
+  "status": "ok",
+  "result": {
+    "artifacts": [
+      "docs/implementation-plan.md"
+    ],
+    "criticalPath": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M7"
+    ],
+    "milestones": [
+      {
+        "dependencies": [],
+        "name": "M1: Project Bootstrap & Core Infrastructure",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M1"
+        ],
+        "name": "M2: Teams Bot Foundation",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M2"
+        ],
+        "name": "M3: Claude Code Integration",
+        "taskCount": 10
+      },
+      {
+        "dependencies": [
+          "M3"
+        ],
+        "name": "M4: Message Bridge & Streaming",
+        "taskCount": 10
+      },
+      {
+        "dependencies": [
+          "M4"
+        ],
+        "name": "M5: Adaptive Cards & Rich Output",
+        "taskCount": 8
+      },
+      {
+        "dependencies": [
+          "M2"
+        ],
+        "name": "M6: Authentication & Security",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "name": "M7: Polish, Testing & Documentation",
+        "taskCount": 7
+      }
+    ],
+    "risks": [
+      "Teams SDK v2 API may change before stable release",
+      "Claude Agent SDK streaming input undocumented behaviors",
+      "Dev tunnel reliability and URL changes",
+      "Adaptive Cards CodeBlock not supported on all clients",
+      "28KB card payload limit for large code blocks",
+      "Permission prompt timeout blocking Claude session",
+      "Teams tenant admin may block sideloading"
+    ],
+    "totalTasks": 62
+  },
+  "startedAt": "2026-03-17T10:36:32.659Z",
+  "finishedAt": "2026-03-17T10:36:32.659Z",
+  "value": {
+    "artifacts": [
+      "docs/implementation-plan.md"
+    ],
+    "criticalPath": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M7"
+    ],
+    "milestones": [
+      {
+        "dependencies": [],
+        "name": "M1: Project Bootstrap & Core Infrastructure",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M1"
+        ],
+        "name": "M2: Teams Bot Foundation",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M2"
+        ],
+        "name": "M3: Claude Code Integration",
+        "taskCount": 10
+      },
+      {
+        "dependencies": [
+          "M3"
+        ],
+        "name": "M4: Message Bridge & Streaming",
+        "taskCount": 10
+      },
+      {
+        "dependencies": [
+          "M4"
+        ],
+        "name": "M5: Adaptive Cards & Rich Output",
+        "taskCount": 8
+      },
+      {
+        "dependencies": [
+          "M2"
+        ],
+        "name": "M6: Authentication & Security",
+        "taskCount": 9
+      },
+      {
+        "dependencies": [
+          "M4",
+          "M5",
+          "M6"
+        ],
+        "name": "M7: Polish, Testing & Documentation",
+        "taskCount": 7
+      }
+    ],
+    "risks": [
+      "Teams SDK v2 API may change before stable release",
+      "Claude Agent SDK streaming input undocumented behaviors",
+      "Dev tunnel reliability and URL changes",
+      "Adaptive Cards CodeBlock not supported on all clients",
+      "28KB card payload limit for large code blocks",
+      "Permission prompt timeout blocking Claude session",
+      "Teams tenant admin may block sideloading"
+    ],
+    "totalTasks": 62
+  }
+}

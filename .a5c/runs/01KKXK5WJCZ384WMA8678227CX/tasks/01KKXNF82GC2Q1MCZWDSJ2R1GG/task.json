@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXNF82GC2Q1MCZWDSJ2R1GG",
+  "taskId": "implementation-plan",
+  "invocationKey": "cc-ms-teams-spec:S000005:implementation-plan",
+  "stepId": "S000005",
+  "kind": "agent",
+  "title": "Implementation plan: Milestones, tasks, and dependencies",
+  "labels": [
+    "implementation",
+    "milestones",
+    "planning"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXNF82GC2Q1MCZWDSJ2R1GG/input.json",
+    "outputJsonPath": "tasks/01KKXNF82GC2Q1MCZWDSJ2R1GG/result.json"
+  },
+  "inputs": {
+    "architecture": {
+      "artifacts": [
+        "docs/architecture-design.md"
+      ],
+      "components": [
+        {
+          "modules": [
+            "TeamsApp",
+            "ActivityRouter",
+            "McpPlugin",
+            "ProactiveSender",
+            "ConversationStore",
+            "CommandParser"
+          ],
+          "name": "Teams Bot Service"
+        },
+        {
+          "modules": [
+            "TeamsToClaudeTransformer",
+            "ClaudeToTeamsTransformer",
+            "StreamBatcher",
+            "ContentChunker",
+            "MarkdownAdapter"
+          ],
+          "name": "Message Bridge"
+        },
+        {
+          "modules": [
+            "SessionPool",
+            "SessionFactory",
+            "StreamInputAdapter",
+            "ToolPermissionManager",
+            "HookForwarder",
+            "BudgetTracker"
+          ],
+          "name": "Claude Code Session Manager"
+        },
+        {
+          "modules": [
+            "CodeBlockRenderer",
+            "DiffRenderer",
+            "FileTreeRenderer",
+            "ProgressRenderer",
+            "ErrorRenderer",
+            "PermissionRenderer"
+          ],
+          "name": "Adaptive Card Renderer"
+        },
+        {
+          "modules": [
+            "UploadHandler",
+            "SnippetExtractor",
+            "AttachmentProcessor",
+            "FileMetadataService"
+          ],
+          "name": "File Sharing Service"
+        },
+        {
+          "modules": [
+            "AzureADProvider",
+            "TokenValidator",
+            "UserACLStore",
+            "WebhookAuthProvider",
+            "ClaudeAPIKeyManager"
+          ],
+          "name": "Auth Module"
+        },
+        {
+          "modules": [
+            "TunnelSpawner",
+            "HealthMonitor",
+            "URLResolver",
+            "TunnelConfig"
+          ],
+          "name": "Dev Tunnel Manager"
+        }
+      ],
+      "dataFlows": [
+        {
+          "name": "User Message to Claude and Back",
+          "path": "Teams -> Azure Bot Service -> Dev Tunnel -> TeamsBot -> Auth -> MessageBridge -> SessionManager -> Claude SDK -> StreamBatcher -> CardRenderer -> Teams"
+        },
+        {
+          "name": "Claude Streaming Output",
+          "path": "Claude SDK -> StreamBatcher (500ms/200char) -> ContentChunker -> CodeBlockRenderer -> ProactiveSender -> Teams"
+        },
+        {
+          "name": "Code Snippet to Adaptive Card",
+          "path": "Claude SDK -> SnippetExtractor -> LanguageMapper -> CodeBlockRenderer -> Adaptive Card -> Teams"
+        },
+        {
+          "name": "File Upload from Teams",
+          "path": "Teams attachment -> UploadHandler -> local disk -> SDKUserMessage -> Claude Code Read tool"
+        },
+        {
+          "name": "MCP Bidirectional",
+          "path": "Claude Code -> MCP tool call -> McpPlugin -> ProactiveSender -> Teams"
+        }
+      ],
+      "deploymentModel": {
+        "server": "HTTP on port 3978 with /api/messages and /mcp endpoints",
+        "state": "~/.cc-ms-teams/ with JSON config, conversation map, session map, audit log",
+        "tunnel": "Persistent dev tunnel ID",
+        "type": "local-first"
+      },
+      "techStack": {
+        "build": "esbuild",
+        "claudeSdk": "@anthropic-ai/claude-agent-sdk (streaming input)",
+        "language": "TypeScript 5.5+",
+        "runtime": "Node.js 22+ (ESM)",
+        "teamsSdk": "@microsoft/teams.apps v2, @microsoft/teams.mcp",
+        "testing": "vitest",
+        "tunnel": "MS Dev Tunnels (primary), ngrok (fallback)"
+      }
+    },
+    "projectName": "cc-ms-teams",
+    "requirements": {
+      "authentication": "Both Azure AD app registration AND personal access token approaches documented",
+      "deployment": "Local-first, developer workstation, dev tunnel for webhook receipt",
+      "existingSolutions": {
+        "composio-mcp": "Composio MS Teams MCP server - reverse direction reference",
+        "teams-claude-bot": "Marvae/teams-claude-bot on GitHub - open source reference",
+        "teams-sdk-v2-mcp": "MS Teams SDK v2 native MCP support"
+      },
+      "features": [
+        "Send messages from Teams to Claude Code sessions",
+        "Receive Claude Code responses in Teams (including streaming)",
+        "Share code snippets and file diffs via Adaptive Cards",
+        "File upload from Teams to local filesystem",
+        "Syntax-highlighted code blocks in Teams",
+        "Diff visualization in Adaptive Cards"
+      ],
+      "hosting": "Local machine with ngrok/dev tunnel for Teams webhook delivery",
+      "scope": "Architecture specification + detailed implementation plan (no prototype)",
+      "techStack": "TypeScript/Node.js, Teams SDK v2 or M365 Agents SDK, Claude Agent SDK",
+      "useCase": "Full bidirectional chat - send prompts to Claude Code from Teams AND receive notifications/results back"
+    },
+    "specification": {
+      "artifacts": [
+        "docs/specification.md"
+      ],
+      "keyDecisions": [
+        "File sharing dropped from v1.0 scope - deferred to future",
+        "Teams SDK v2 over deprecated botbuilder v4",
+        "Claude Agent SDK streaming input mode (AsyncIterable) for persistent sessions",
+        "Read-only tools as default; write/bash require explicit opt-in",
+        "canUseTool callback routes permission requests to Adaptive Cards",
+        "MS Dev Tunnels primary, ngrok fallback",
+        "Personal chat scope only in v1.0; channel scope deferred",
+        "Single-tenant Azure AD bot registration",
+        "Config in ~/.cc-ms-teams/ with 0600 permissions",
+        "500ms streaming batch interval default",
+        "Zod schemas for config validation",
+        "esbuild single-file bundle"
+      ],
+      "openQuestions": [
+        "MCP endpoint exposure: local-only vs tunnel (currently local-only)",
+        "V2 session API adoption timing (unstable_v2_createSession)",
+        "Azure CLI automation for bot registration in setup wizard",
+        "Teams mobile CodeBlock rendering limitations",
+        "Session resume across machine reboots",
+        "Audit log rotation approach"
+      ],
+      "sections": [
+        "1. Executive Summary",
+        "2. System Architecture",
+        "3.1 Teams Bot Service",
+        "3.2 Message Bridge",
+        "3.3 Claude Code Session Manager",
+        "3.4 Adaptive Card Renderer",
+        "3.5 Authentication Module",
+        "3.6 Dev Tunnel Manager",
+        "4. Data Models",
+        "5. API Contracts",
+        "6. Security Specification",
+        "7. Configuration",
+        "8. Error Handling",
+        "9. Testing Strategy",
+        "10. Non-Functional Requirements",
+        "11. Developer Experience"
+      ]
+    }
+  }
+}

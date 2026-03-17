@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXVGCB3PNZJEK1V6X4GCG5J",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000001:milestone-impl",
+  "stepId": "S000001",
+  "kind": "agent",
+  "title": "Milestone 1: Project Bootstrap & Core Infrastructure",
+  "labels": [
+    "cc-ms-teams",
+    "implementation",
+    "milestone-1"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXVGCB3PNZJEK1V6X4GCG5J/input.json",
+    "outputJsonPath": "tasks/01KKXVGCB3PNZJEK1V6X4GCG5J/result.json"
+  },
+  "inputs": {
+    "acceptanceCriteria": [
+      "npm install succeeds with no peer dependency warnings",
+      "npx tsc --noEmit passes",
+      "npm run build produces ESM output in dist/",
+      "npm test runs and passes smoke test",
+      "cc-ms-teams status command runs (shows \"not configured\" state)",
+      "Configuration loads from file + env vars with zod validation",
+      "Logger outputs structured JSON",
+      "Tunnel manager can detect available tunnel providers"
+    ],
+    "description": "Initialize the TypeScript project and build core infrastructure. This is the foundation milestone.",
+    "fileStructure": "\nsrc/index.ts, src/cli/main.ts, src/cli/commands/setup.ts, src/cli/commands/start.ts, src/cli/commands/stop.ts, src/cli/commands/status.ts,\nsrc/config/schema.ts, src/config/defaults.ts, src/config/loader.ts, src/config/paths.ts,\nsrc/logging/logger.ts, src/logging/audit.ts,\nsrc/tunnel/types.ts, src/tunnel/manager.ts, src/tunnel/devtunnel-provider.ts, src/tunnel/ngrok-provider.ts, src/tunnel/health.ts,\nsrc/utils/async-queue.ts, src/utils/retry.ts, src/utils/pid-file.ts,\npackage.json, tsconfig.json, esbuild.config.ts, vitest.config.ts, .eslintrc.cjs, .gitignore,\ntests/unit/smoke.test.ts, tests/unit/config/loader.test.ts",
+    "milestone": 1,
+    "projectName": "cc-ms-teams",
+    "specDir": "docs",
+    "tasks": [
+      "M1-T1: Initialize TypeScript project with ESM configuration (package.json type:module, tsconfig.json strict+ESM+Node22, esbuild.config.ts, .eslintrc.cjs, .gitignore)",
+      "M1-T2: Create vitest test infrastructure (vitest.config.ts, tests/unit/smoke.test.ts)",
+      "M1-T3: Configuration system with zod schemas (src/config/schema.ts, defaults.ts, loader.ts, paths.ts) - reads ~/.cc-ms-teams/config.json, merges env vars, validates with zod",
+      "M1-T4: Structured logging with pino (src/logging/logger.ts, audit.ts) - JSON structured logs, audit log for security events",
+      "M1-T5: CLI entry point with commander (src/cli/main.ts, commands/setup.ts, start.ts, stop.ts, status.ts) - cc-ms-teams command with subcommands",
+      "M1-T6: Dev tunnel manager - types (src/tunnel/types.ts IDevTunnelManager interface)",
+      "M1-T7: Dev tunnel manager - MS Dev Tunnels provider (src/tunnel/devtunnel-provider.ts, manager.ts) - wraps devtunnel CLI",
+      "M1-T8: Dev tunnel manager - ngrok fallback provider (src/tunnel/ngrok-provider.ts) - fallback tunnel provider",
+      "M1-T9: Dev tunnel health monitoring (src/tunnel/health.ts) - periodic HTTP ping to verify tunnel is alive"
+    ],
+    "title": "Project Bootstrap & Core Infrastructure"
+  }
+}

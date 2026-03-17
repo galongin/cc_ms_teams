@@ -1,0 +1,21 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T09:49:11.484Z",
+  "data": {
+    "effectId": "01KKXK61XFV8RC9N3N0VJZVXEQ",
+    "invocationKey": "cc-ms-teams-spec:S000001:deep-research",
+    "invocationHash": "edb9570285baa6e4e896dd851e59f574df5364d24fb916ee99958dd6ca30249c",
+    "stepId": "S000001",
+    "taskId": "deep-research",
+    "kind": "agent",
+    "label": "research",
+    "taskDefRef": "tasks/01KKXK61XFV8RC9N3N0VJZVXEQ/task.json",
+    "labels": [
+      "research",
+      "teams",
+      "claude-code",
+      "specification"
+    ]
+  },
+  "checksum": "fce0b2248091af4f580735d9f30aff611467bac827b27f2c777f71a4e156d472"
+}

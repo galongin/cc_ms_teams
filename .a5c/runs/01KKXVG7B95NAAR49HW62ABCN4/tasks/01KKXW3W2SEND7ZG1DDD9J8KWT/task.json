@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXW3W2SEND7ZG1DDD9J8KWT",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000003:milestone-impl",
+  "stepId": "S000003",
+  "kind": "agent",
+  "title": "Milestone 2: Teams Bot Foundation",
+  "labels": [
+    "cc-ms-teams",
+    "implementation",
+    "milestone-2"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXW3W2SEND7ZG1DDD9J8KWT/input.json",
+    "outputJsonPath": "tasks/01KKXW3W2SEND7ZG1DDD9J8KWT/result.json"
+  },
+  "inputs": {
+    "acceptanceCriteria": [
+      "Teams App starts and listens on port 3978",
+      "/api/messages endpoint receives and processes activities",
+      "Bot echoes received messages back to sender",
+      "Slash commands are parsed correctly",
+      "Conversation store persists userId -> conversationId",
+      "App manifest can be generated and zipped",
+      "Setup wizard collects and stores Azure Bot credentials",
+      "npm test passes with bot unit tests"
+    ],
+    "description": "Set up the Teams SDK v2 bot with activity handlers, message routing, and basic echo functionality.",
+    "fileStructure": "\nsrc/bot/teams-app.ts, src/bot/activity-handlers.ts, src/bot/command-parser.ts,\nsrc/bot/proactive-sender.ts, src/bot/conversation-store.ts, src/bot/manifest-generator.ts,\ntests/unit/bot/command-parser.test.ts, tests/unit/bot/conversation-store.test.ts,\ntests/mocks/teams-sdk.ts",
+    "milestone": 2,
+    "projectName": "cc-ms-teams",
+    "specDir": "docs",
+    "tasks": [
+      "M2-T1: Teams App factory (src/bot/teams-app.ts) - create Teams SDK v2 App instance with MCP plugin, configure HTTP adapter on port 3978, /api/messages endpoint",
+      "M2-T2: Activity handlers (src/bot/activity-handlers.ts) - app.on(\"message\") for text, app.on(\"card.action\") for Adaptive Card submits, install/uninstall handlers",
+      "M2-T3: Command parser (src/bot/command-parser.ts) - parse /new, /stop, /status, /help, /permissions, /project slash commands from message text",
+      "M2-T4: Proactive sender (src/bot/proactive-sender.ts) - wrapper around app.send(conversationId, content) for async Claude output delivery",
+      "M2-T5: Conversation store (src/bot/conversation-store.ts) - JSON file mapping userId -> conversationId, persisted in ~/.cc-ms-teams/conversations.json",
+      "M2-T6: App manifest generator (src/bot/manifest-generator.ts) - generate manifest.json + zip with bot ID, scopes=[personal], supportsFiles=false, icons",
+      "M2-T7: Setup wizard integration - update src/cli/commands/setup.ts to guide Azure Bot registration, collect app ID/password, generate manifest, store config",
+      "M2-T8: Start command integration - update src/cli/commands/start.ts to boot tunnel + Teams App, register message handlers, listen on port",
+      "M2-T9: Basic echo test - wire message handler to echo back user message as confirmation the bot works end-to-end"
+    ],
+    "title": "Teams Bot Foundation"
+  }
+}

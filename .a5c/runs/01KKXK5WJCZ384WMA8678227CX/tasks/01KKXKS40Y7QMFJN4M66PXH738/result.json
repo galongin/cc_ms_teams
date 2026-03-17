@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXKS40Y7QMFJN4M66PXH738",
+  "taskId": "architecture-design",
+  "invocationKey": "cc-ms-teams-spec:S000002:architecture-design",
+  "status": "ok",
+  "result": {
+    "artifacts": [
+      "docs/architecture-design.md"
+    ],
+    "components": [
+      {
+        "modules": [
+          "TeamsApp",
+          "ActivityRouter",
+          "McpPlugin",
+          "ProactiveSender",
+          "ConversationStore",
+          "CommandParser"
+        ],
+        "name": "Teams Bot Service"
+      },
+      {
+        "modules": [
+          "TeamsToClaudeTransformer",
+          "ClaudeToTeamsTransformer",
+          "StreamBatcher",
+          "ContentChunker",
+          "MarkdownAdapter"
+        ],
+        "name": "Message Bridge"
+      },
+      {
+        "modules": [
+          "SessionPool",
+          "SessionFactory",
+          "StreamInputAdapter",
+          "ToolPermissionManager",
+          "HookForwarder",
+          "BudgetTracker"
+        ],
+        "name": "Claude Code Session Manager"
+      },
+      {
+        "modules": [
+          "CodeBlockRenderer",
+          "DiffRenderer",
+          "FileTreeRenderer",
+          "ProgressRenderer",
+          "ErrorRenderer",
+          "PermissionRenderer"
+        ],
+        "name": "Adaptive Card Renderer"
+      },
+      {
+        "modules": [
+          "UploadHandler",
+          "SnippetExtractor",
+          "AttachmentProcessor",
+          "FileMetadataService"
+        ],
+        "name": "File Sharing Service"
+      },
+      {
+        "modules": [
+          "AzureADProvider",
+          "TokenValidator",
+          "UserACLStore",
+          "WebhookAuthProvider",
+          "ClaudeAPIKeyManager"
+        ],
+        "name": "Auth Module"
+      },
+      {
+        "modules": [
+          "TunnelSpawner",
+          "HealthMonitor",
+          "URLResolver",
+          "TunnelConfig"
+        ],
+        "name": "Dev Tunnel Manager"
+      }
+    ],
+    "dataFlows": [
+      {
+        "name": "User Message to Claude and Back",
+        "path": "Teams -> Azure Bot Service -> Dev Tunnel -> TeamsBot -> Auth -> MessageBridge -> SessionManager -> Claude SDK -> StreamBatcher -> CardRenderer -> Teams"
+      },
+      {
+        "name": "Claude Streaming Output",
+        "path": "Claude SDK -> StreamBatcher (500ms/200char) -> ContentChunker -> CodeBlockRenderer -> ProactiveSender -> Teams"
+      },
+      {
+        "name": "Code Snippet to Adaptive Card",
+        "path": "Claude SDK -> SnippetExtractor -> LanguageMapper -> CodeBlockRenderer -> Adaptive Card -> Teams"
+      },
+      {
+        "name": "File Upload from Teams",
+        "path": "Teams attachment -> UploadHandler -> local disk -> SDKUserMessage -> Claude Code Read tool"
+      },
+      {
+        "name": "MCP Bidirectional",
+        "path": "Claude Code -> MCP tool call -> McpPlugin -> ProactiveSender -> Teams"
+      }
+    ],
+    "deploymentModel": {
+      "server": "HTTP on port 3978 with /api/messages and /mcp endpoints",
+      "state": "~/.cc-ms-teams/ with JSON config, conversation map, session map, audit log",
+      "tunnel": "Persistent dev tunnel ID",
+      "type": "local-first"
+    },
+    "techStack": {
+      "build": "esbuild",
+      "claudeSdk": "@anthropic-ai/claude-agent-sdk (streaming input)",
+      "language": "TypeScript 5.5+",
+      "runtime": "Node.js 22+ (ESM)",
+      "teamsSdk": "@microsoft/teams.apps v2, @microsoft/teams.mcp",
+      "testing": "vitest",
+      "tunnel": "MS Dev Tunnels (primary), ngrok (fallback)"
+    }
+  },
+  "startedAt": "2026-03-17T10:06:05.076Z",
+  "finishedAt": "2026-03-17T10:06:05.076Z",
+  "value": {
+    "artifacts": [
+      "docs/architecture-design.md"
+    ],
+    "components": [
+      {
+        "modules": [
+          "TeamsApp",
+          "ActivityRouter",
+          "McpPlugin",
+          "ProactiveSender",
+          "ConversationStore",
+          "CommandParser"
+        ],
+        "name": "Teams Bot Service"
+      },
+      {
+        "modules": [
+          "TeamsToClaudeTransformer",
+          "ClaudeToTeamsTransformer",
+          "StreamBatcher",
+          "ContentChunker",
+          "MarkdownAdapter"
+        ],
+        "name": "Message Bridge"
+      },
+      {
+        "modules": [
+          "SessionPool",
+          "SessionFactory",
+          "StreamInputAdapter",
+          "ToolPermissionManager",
+          "HookForwarder",
+          "BudgetTracker"
+        ],
+        "name": "Claude Code Session Manager"
+      },
+      {
+        "modules": [
+          "CodeBlockRenderer",
+          "DiffRenderer",
+          "FileTreeRenderer",
+          "ProgressRenderer",
+          "ErrorRenderer",
+          "PermissionRenderer"
+        ],
+        "name": "Adaptive Card Renderer"
+      },
+      {
+        "modules": [
+          "UploadHandler",
+          "SnippetExtractor",
+          "AttachmentProcessor",
+          "FileMetadataService"
+        ],
+        "name": "File Sharing Service"
+      },
+      {
+        "modules": [
+          "AzureADProvider",
+          "TokenValidator",
+          "UserACLStore",
+          "WebhookAuthProvider",
+          "ClaudeAPIKeyManager"
+        ],
+        "name": "Auth Module"
+      },
+      {
+        "modules": [
+          "TunnelSpawner",
+          "HealthMonitor",
+          "URLResolver",
+          "TunnelConfig"
+        ],
+        "name": "Dev Tunnel Manager"
+      }
+    ],
+    "dataFlows": [
+      {
+        "name": "User Message to Claude and Back",
+        "path": "Teams -> Azure Bot Service -> Dev Tunnel -> TeamsBot -> Auth -> MessageBridge -> SessionManager -> Claude SDK -> StreamBatcher -> CardRenderer -> Teams"
+      },
+      {
+        "name": "Claude Streaming Output",
+        "path": "Claude SDK -> StreamBatcher (500ms/200char) -> ContentChunker -> CodeBlockRenderer -> ProactiveSender -> Teams"
+      },
+      {
+        "name": "Code Snippet to Adaptive Card",
+        "path": "Claude SDK -> SnippetExtractor -> LanguageMapper -> CodeBlockRenderer -> Adaptive Card -> Teams"
+      },
+      {
+        "name": "File Upload from Teams",
+        "path": "Teams attachment -> UploadHandler -> local disk -> SDKUserMessage -> Claude Code Read tool"
+      },
+      {
+        "name": "MCP Bidirectional",
+        "path": "Claude Code -> MCP tool call -> McpPlugin -> ProactiveSender -> Teams"
+      }
+    ],
+    "deploymentModel": {
+      "server": "HTTP on port 3978 with /api/messages and /mcp endpoints",
+      "state": "~/.cc-ms-teams/ with JSON config, conversation map, session map, audit log",
+      "tunnel": "Persistent dev tunnel ID",
+      "type": "local-first"
+    },
+    "techStack": {
+      "build": "esbuild",
+      "claudeSdk": "@anthropic-ai/claude-agent-sdk (streaming input)",
+      "language": "TypeScript 5.5+",
+      "runtime": "Node.js 22+ (ESM)",
+      "teamsSdk": "@microsoft/teams.apps v2, @microsoft/teams.mcp",
+      "testing": "vitest",
+      "tunnel": "MS Dev Tunnels (primary), ngrok (fallback)"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXXMSG1X3ZPRMS261RJX2YB",
+  "taskId": "milestone-impl",
+  "invocationKey": "cc-ms-teams-impl:S000007:milestone-impl",
+  "stepId": "S000007",
+  "kind": "agent",
+  "title": "Milestone 4: Message Bridge & Streaming",
+  "labels": [
+    "cc-ms-teams",
+    "implementation",
+    "milestone-4"
+  ],
+  "io": {
+    "inputJsonPath": "tasks/01KKXXMSG1X3ZPRMS261RJX2YB/input.json",
+    "outputJsonPath": "tasks/01KKXXMSG1X3ZPRMS261RJX2YB/result.json"
+  },
+  "inputs": {
+    "acceptanceCriteria": [
+      "Teams messages are correctly transformed to SDKUserMessage format",
+      "Claude SDK output events are transformed to Teams-renderable content",
+      "Stream batcher reduces update frequency to ~2/second",
+      "Content chunker splits oversized responses into multiple messages",
+      "Progressive message updates work (edit-in-place for streaming)",
+      "Full pipeline works: Teams -> Claude -> streaming -> Teams",
+      "npm test passes with bridge unit tests"
+    ],
+    "description": "Build the bidirectional message bridge with streaming support and progressive Teams message updates.",
+    "fileStructure": "\nsrc/bridge/types.ts, src/bridge/message-bridge.ts, src/bridge/teams-to-claude.ts,\nsrc/bridge/claude-to-teams.ts, src/bridge/stream-batcher.ts, src/bridge/content-chunker.ts,\ntests/unit/bridge/teams-to-claude.test.ts, tests/unit/bridge/claude-to-teams.test.ts,\ntests/unit/bridge/stream-batcher.test.ts, tests/unit/bridge/content-chunker.test.ts",
+    "milestone": 4,
+    "projectName": "cc-ms-teams",
+    "specDir": "docs",
+    "tasks": [
+      "M4-T1: Bridge types (src/bridge/types.ts) - IMessageBridge, MessageContext, TeamsContent, ClaudeContent interfaces",
+      "M4-T2: Teams-to-Claude transformer (src/bridge/teams-to-claude.ts) - converts Teams activity text/markdown to SDKUserMessage format",
+      "M4-T3: Claude-to-Teams transformer (src/bridge/claude-to-teams.ts) - converts SDK output events (SDKTextBlock, SDKToolUseSummary, etc.) to Teams message content",
+      "M4-T4: Stream batcher (src/bridge/stream-batcher.ts) - batches streaming SDK text chunks into 500ms/200char batches to reduce Teams message update frequency",
+      "M4-T5: Content chunker (src/bridge/content-chunker.ts) - splits responses exceeding 28KB Adaptive Card limit or 4KB text limit into multiple messages",
+      "M4-T6: Message bridge orchestrator (src/bridge/message-bridge.ts) - wires transformers, batcher, chunker together. Manages progressive message updates (edit-in-place)",
+      "M4-T7: Progressive message updates - implement message editing (update existing message) for streaming responses instead of sending new messages",
+      "M4-T8: Message history tracking - track conversation context per session for multi-turn coherence",
+      "M4-T9: Wire bridge into bot + session - connect output processor -> bridge -> proactive sender pipeline",
+      "M4-T10: End-to-end streaming test - verify full flow: Teams message -> session -> Claude SDK -> streaming output -> batched updates -> Teams"
+    ],
+    "title": "Message Bridge & Streaming"
+  }
+}

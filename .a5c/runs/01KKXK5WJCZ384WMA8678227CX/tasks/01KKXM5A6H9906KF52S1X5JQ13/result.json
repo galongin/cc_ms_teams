@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXM5A6H9906KF52S1X5JQ13",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-spec:S000003:__sdk.breakpoint",
+  "status": "ok",
+  "result": {
+    "approved": true,
+    "feedback": "1. Prioritize developer experience - quick setup, good defaults, minimal configuration. 2. Drop the File Sharing Service component from scope - leave file uploads/attachments for future improvements. Focus on core bidirectional chat with code rendering in Adaptive Cards.",
+    "response": "Approve with notes"
+  },
+  "startedAt": "2026-03-17T10:19:23.390Z",
+  "finishedAt": "2026-03-17T10:19:23.390Z",
+  "value": {
+    "approved": true,
+    "feedback": "1. Prioritize developer experience - quick setup, good defaults, minimal configuration. 2. Drop the File Sharing Service component from scope - leave file uploads/attachments for future improvements. Focus on core bidirectional chat with code rendering in Adaptive Cards.",
+    "response": "Approve with notes"
+  }
+}

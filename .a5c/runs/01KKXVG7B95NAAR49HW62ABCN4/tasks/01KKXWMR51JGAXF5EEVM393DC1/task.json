@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXWMR51JGAXF5EEVM393DC1",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-impl:S000004:__sdk.breakpoint",
+  "stepId": "S000004",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 2
+      },
+      "question": "Milestone 2 (Teams Bot Foundation) complete. The bot should echo messages. Run `npm test` to verify. Approve to continue?",
+      "title": "Milestone 2 Review"
+    },
+    "requestedAt": "2026-03-17T12:34:30.177Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 2
+      },
+      "question": "Milestone 2 (Teams Bot Foundation) complete. The bot should echo messages. Run `npm test` to verify. Approve to continue?",
+      "title": "Milestone 2 Review"
+    },
+    "requestedAt": "2026-03-17T12:34:30.177Z"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "components": [
+    {"name": "Teams Bot Service", "modules": ["TeamsApp", "ActivityRouter", "McpPlugin", "ProactiveSender", "ConversationStore", "CommandParser"]},
+    {"name": "Message Bridge", "modules": ["TeamsToClaudeTransformer", "ClaudeToTeamsTransformer", "StreamBatcher", "ContentChunker", "MarkdownAdapter"]},
+    {"name": "Claude Code Session Manager", "modules": ["SessionPool", "SessionFactory", "StreamInputAdapter", "ToolPermissionManager", "HookForwarder", "BudgetTracker"]},
+    {"name": "Adaptive Card Renderer", "modules": ["CodeBlockRenderer", "DiffRenderer", "FileTreeRenderer", "ProgressRenderer", "ErrorRenderer", "PermissionRenderer"]},
+    {"name": "File Sharing Service", "modules": ["UploadHandler", "SnippetExtractor", "AttachmentProcessor", "FileMetadataService"]},
+    {"name": "Auth Module", "modules": ["AzureADProvider", "TokenValidator", "UserACLStore", "WebhookAuthProvider", "ClaudeAPIKeyManager"]},
+    {"name": "Dev Tunnel Manager", "modules": ["TunnelSpawner", "HealthMonitor", "URLResolver", "TunnelConfig"]}
+  ],
+  "dataFlows": [
+    {"name": "User Message to Claude and Back", "path": "Teams -> Azure Bot Service -> Dev Tunnel -> TeamsBot -> Auth -> MessageBridge -> SessionManager -> Claude SDK -> StreamBatcher -> CardRenderer -> Teams"},
+    {"name": "Claude Streaming Output", "path": "Claude SDK -> StreamBatcher (500ms/200char) -> ContentChunker -> CodeBlockRenderer -> ProactiveSender -> Teams"},
+    {"name": "Code Snippet to Adaptive Card", "path": "Claude SDK -> SnippetExtractor -> LanguageMapper -> CodeBlockRenderer -> Adaptive Card -> Teams"},
+    {"name": "File Upload from Teams", "path": "Teams attachment -> UploadHandler -> local disk -> SDKUserMessage -> Claude Code Read tool"},
+    {"name": "MCP Bidirectional", "path": "Claude Code -> MCP tool call -> McpPlugin -> ProactiveSender -> Teams"}
+  ],
+  "techStack": {
+    "runtime": "Node.js 22+ (ESM)",
+    "language": "TypeScript 5.5+",
+    "teamsSdk": "@microsoft/teams.apps v2, @microsoft/teams.mcp",
+    "claudeSdk": "@anthropic-ai/claude-agent-sdk (streaming input)",
+    "build": "esbuild",
+    "testing": "vitest",
+    "tunnel": "MS Dev Tunnels (primary), ngrok (fallback)"
+  },
+  "deploymentModel": {
+    "type": "local-first",
+    "server": "HTTP on port 3978 with /api/messages and /mcp endpoints",
+    "state": "~/.cc-ms-teams/ with JSON config, conversation map, session map, audit log",
+    "tunnel": "Persistent dev tunnel ID"
+  },
+  "artifacts": ["docs/architecture-design.md"]
+}

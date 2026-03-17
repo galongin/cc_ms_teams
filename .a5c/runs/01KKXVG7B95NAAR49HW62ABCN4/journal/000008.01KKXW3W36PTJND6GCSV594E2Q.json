@@ -1,0 +1,20 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T12:25:17.158Z",
+  "data": {
+    "effectId": "01KKXW3W2SEND7ZG1DDD9J8KWT",
+    "invocationKey": "cc-ms-teams-impl:S000003:milestone-impl",
+    "invocationHash": "b0f9f29068478e65528c8e23429cda6def27080a4ee779968fca4c5c9a47dea2",
+    "stepId": "S000003",
+    "taskId": "milestone-impl",
+    "kind": "agent",
+    "label": "implementation",
+    "taskDefRef": "tasks/01KKXW3W2SEND7ZG1DDD9J8KWT/task.json",
+    "labels": [
+      "implementation",
+      "milestone-2",
+      "cc-ms-teams"
+    ]
+  },
+  "checksum": "a25a406be537217ef55443586e56239e1ce96722b1239dd64997b3c0a93a8767"
+}

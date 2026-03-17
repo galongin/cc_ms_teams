@@ -1,0 +1,18 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T12:48:50.658Z",
+  "data": {
+    "effectId": "01KKXXF0ENMPCYPFAHDGTQZARC",
+    "invocationKey": "cc-ms-teams-impl:S000006:__sdk.breakpoint",
+    "invocationHash": "f6fe2e71dc4e811f3b30231efe60549f5136a72ad3f6e8ee27f001cfab7e43ae",
+    "stepId": "S000006",
+    "taskId": "__sdk.breakpoint",
+    "kind": "breakpoint",
+    "label": "breakpoint",
+    "taskDefRef": "tasks/01KKXXF0ENMPCYPFAHDGTQZARC/task.json",
+    "labels": [
+      "breakpoint"
+    ]
+  },
+  "checksum": "14a7ce76cfeac8478ce6283733cb6342b9668fa0e41c244da4fbdfd4a2e57658"
+}

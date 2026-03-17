@@ -1,0 +1,20 @@
+{
+  "type": "EFFECT_REQUESTED",
+  "recordedAt": "2026-03-17T10:36:42.649Z",
+  "data": {
+    "effectId": "01KKXNX2856YB718BQ34R5XHY7",
+    "invocationKey": "cc-ms-teams-spec:S000006:spec-validation",
+    "invocationHash": "fb579df3f528c833525c8be498f4f43174f05b745799a0679fdc61a3780e6972",
+    "stepId": "S000006",
+    "taskId": "spec-validation",
+    "kind": "agent",
+    "label": "validation",
+    "taskDefRef": "tasks/01KKXNX2856YB718BQ34R5XHY7/task.json",
+    "labels": [
+      "validation",
+      "quality",
+      "specification"
+    ]
+  },
+  "checksum": "b7c0286543a7ef85523b6a0d3843c4bb51ed972dbf5b87c3e2753bbf8bbfb4e1"
+}

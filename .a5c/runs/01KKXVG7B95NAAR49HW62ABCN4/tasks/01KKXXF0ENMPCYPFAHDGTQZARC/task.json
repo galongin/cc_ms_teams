@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "2026.01.tasks-v1",
+  "effectId": "01KKXXF0ENMPCYPFAHDGTQZARC",
+  "taskId": "__sdk.breakpoint",
+  "invocationKey": "cc-ms-teams-impl:S000006:__sdk.breakpoint",
+  "stepId": "S000006",
+  "kind": "breakpoint",
+  "title": "breakpoint",
+  "metadata": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 3
+      },
+      "question": "Milestone 3 (Claude Code Integration) complete. Session manager, streaming input, and permission handler are implemented. Run `npm test` to verify. Approve to continue?",
+      "title": "Milestone 3 Review"
+    },
+    "requestedAt": "2026-03-17T12:48:50.645Z"
+  },
+  "inputs": {
+    "label": "breakpoint",
+    "payload": {
+      "context": {
+        "milestone": 3
+      },
+      "question": "Milestone 3 (Claude Code Integration) complete. Session manager, streaming input, and permission handler are implemented. Run `npm test` to verify. Approve to continue?",
+      "title": "Milestone 3 Review"
+    },
+    "requestedAt": "2026-03-17T12:48:50.645Z"
+  }
+}

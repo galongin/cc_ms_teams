@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "2026.01.results-v1",
+  "effectId": "01KKXNX2856YB718BQ34R5XHY7",
+  "taskId": "spec-validation",
+  "invocationKey": "cc-ms-teams-spec:S000006:spec-validation",
+  "status": "ok",
+  "result": {
+    "artifacts": [
+      "docs/validation-report.md"
+    ],
+    "completenessScore": 82,
+    "consistencyScore": 75,
+    "feasibilityScore": 88,
+    "issues": {
+      "critical": [
+        "Architecture doc still contains full File Sharing Service spec for a feature dropped from v1.0"
+      ],
+      "major": [
+        "getConversationHistory MCP tool listed but has no implementation specified",
+        "IMessageBridge.teamsToClaudeMessage() return type mismatch between architecture and spec",
+        "MCP endpoint /mcp claims local-only but no mechanism prevents tunnel access",
+        "card.action event name for Adaptive Card submits not verified in Teams SDK v2"
+      ],
+      "minor": [
+        "No sequence diagram for MCP-initiated bidirectional flow",
+        "MarkdownAdapter in architecture doc absent from spec and plan",
+        "MessageContext.attachments type mismatch between docs",
+        "Reconnection backoff timings differ between spec and plan",
+        "Spec claims 22 CodeBlock languages but list has 23"
+      ]
+    },
+    "overallAssessment": "needs-revisions"
+  },
+  "startedAt": "2026-03-17T10:41:17.821Z",
+  "finishedAt": "2026-03-17T10:41:17.821Z",
+  "value": {
+    "artifacts": [
+      "docs/validation-report.md"
+    ],
+    "completenessScore": 82,
+    "consistencyScore": 75,
+    "feasibilityScore": 88,
+    "issues": {
+      "critical": [
+        "Architecture doc still contains full File Sharing Service spec for a feature dropped from v1.0"
+      ],
+      "major": [
+        "getConversationHistory MCP tool listed but has no implementation specified",
+        "IMessageBridge.teamsToClaudeMessage() return type mismatch between architecture and spec",
+        "MCP endpoint /mcp claims local-only but no mechanism prevents tunnel access",
+        "card.action event name for Adaptive Card submits not verified in Teams SDK v2"
+      ],
+      "minor": [
+        "No sequence diagram for MCP-initiated bidirectional flow",
+        "MarkdownAdapter in architecture doc absent from spec and plan",
+        "MessageContext.attachments type mismatch between docs",
+        "Reconnection backoff timings differ between spec and plan",
+        "Spec claims 22 CodeBlock languages but list has 23"
+      ]
+    },
+    "overallAssessment": "needs-revisions"
+  }
+}

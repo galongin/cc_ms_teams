@@ -1,0 +1,9 @@
+{
+  "milestone": 1,
+  "title": "Project Bootstrap & Core Infrastructure",
+  "filesCreated": ["package.json","tsconfig.json","esbuild.config.ts",".eslintrc.cjs",".gitignore","vitest.config.ts","src/index.ts","src/config/schema.ts","src/config/defaults.ts","src/config/loader.ts","src/config/paths.ts","src/logging/logger.ts","src/logging/audit.ts","src/cli/main.ts","src/cli/commands/setup.ts","src/cli/commands/start.ts","src/cli/commands/stop.ts","src/cli/commands/status.ts","src/tunnel/types.ts","src/tunnel/manager.ts","src/tunnel/devtunnel-provider.ts","src/tunnel/ngrok-provider.ts","src/tunnel/health.ts","src/utils/async-queue.ts","src/utils/retry.ts","src/utils/pid-file.ts","tests/unit/smoke.test.ts","tests/unit/config/schema.test.ts","tests/unit/config/loader.test.ts","tests/unit/tunnel/manager.test.ts","tests/unit/utils/async-queue.test.ts"],
+  "testsStatus": "pass",
+  "testResults": {"testFiles": 5, "testsPassed": 38, "testsFailed": 0},
+  "issues": [],
+  "summary": "All 9 tasks implemented: TypeScript ESM project, zod config, pino logging, commander CLI, tunnel manager with DevTunnel+ngrok providers, health monitor, async queue, retry, PID file. 38 tests pass."
+}
